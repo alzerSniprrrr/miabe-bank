@@ -1,0 +1,37 @@
+{
+  "name": "miabe-bank",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "parcel build --public-url / -d /target/classes/public ./src/main/resources/static/index.html",
+    "start-dev": "parcel --public-url / -d /target/classes/public ./src/main/resources/public/index.html"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alzerSniprrrr/miabe-bank.git"
+  },
+  "author": "agamah_davon",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/alzerSniprrrr/miabe-bank/issues"
+  },
+  "homepage": "https://github.com/alzerSniprrrr/miabe-bank#readme",
+  "dependencies": {
+    "@babel/plugin-syntax-async-generators": "^7.2.0",
+    "@fortawesome/fontawesome-free": "^5.8.1",
+    "@uirouter/angularjs": "^1.0.3",
+    "angular": "1.6.5",
+    "angular-cookies": "^1.7.7",
+    "jquery": "^3.3.1"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.0.0-0",
+    "@babel/plugin-transform-runtime": "^7.4.3",
+    "@babel/preset-env": "^7.4.3",
+    "@types/angular-ui-router": "1.1.40",
+    "autoprefixer": "^9.5.0",
+    "parcel-bundler": "^1.12.3"
+  }
+}
