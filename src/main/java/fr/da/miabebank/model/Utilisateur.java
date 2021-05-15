@@ -1,0 +1,72 @@
+package fr.da.miabebank.model;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.Generated;
+import lombok.NoArgsConstructor;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import java.util.Arrays;
+import java.util.Collection;
+
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+@Entity
+public class Utilisateur implements UserDetails {
+    @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    private Long idUtilisateur;
+    private String nom;
+    private String prenom;
+    private String email;
+    private String motDePasse;
+    private boolean admin;
+
+    @Override
+    @JsonIgnore
+    public Collection<? extends GrantedAuthority> getAuthorities() {
+        if(admin){
+            return Arrays.asList(new SimpleGrantedAuthority("ROLE_ADMIN"));
+        }
+        return null;
+    }
+
+    @Override
+    public String getPassword() {
+        return motDePasse;
+    }
+
+    @Override
+    public String getUsername() {
+        return email;
+    }
+
+    @Override
+    public boolean isAccountNonExpired() {
+        return false;
+    }
+
+    @Override
+    public boolean isAccountNonLocked() {
+        return false;
+    }
+
+    @Override
+    public boolean isCredentialsNonExpired() {
+        return false;
+    }
+
+    @Override
+    public boolean isEnabled() {
+        return false;
+    }
+
+}
