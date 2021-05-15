@@ -1,4 +1,11 @@
 package fr.da.miabebank.repository;
 
-public interface UtilisateurRepository {
+import fr.da.miabebank.model.Utilisateur;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import javax.swing.text.html.Option;
+import java.util.Optional;
+
+public interface UtilisateurRepository extends JpaRepository<Utilisateur, Long> {
+    Optional<Utilisateur> findByEmail(String email);
 }
