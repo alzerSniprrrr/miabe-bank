@@ -40,7 +40,7 @@ import java.util.Optional;
 @EnableWebSecurity
 @Controller
 public class SecurityConfig extends WebSecurityConfigurerAdapter implements WebMvcConfigurer {
-    @Autowired
+    /*@Autowired
     UtilisateurService userDetailsService;
 
     @Autowired
@@ -163,5 +163,5 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter implements WebM
         registry.addViewController("/").setViewName("forward:login.html");
         registry.addViewController("/login").setViewName("forward:login.html");
         registry.addViewController("/livredor").setViewName("forward:livredor.html");
-    }
+    }*/
 }

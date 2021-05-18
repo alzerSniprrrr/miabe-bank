@@ -1,18 +1,15 @@
 package fr.da.miabebank.model;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
+@Getter
+@Setter
 public class Beneficiaire {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -20,7 +17,9 @@ public class Beneficiaire {
     private  String iban;
     private String nom;
     private String prenom;
-
+    @ManyToOne
+    @JoinColumn(name = "compte_fk")
+    private Compte compte;
     public Beneficiaire(String iban, String nom) {
         this.iban = iban;
         this.nom = nom;

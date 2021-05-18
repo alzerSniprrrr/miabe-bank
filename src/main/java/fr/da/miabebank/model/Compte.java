@@ -21,26 +21,16 @@ public class Compte {
     @Column
     private String type;
     @Column
-    private int solde;
-    @Column
-    private int seuilDecouvert;
-    @Column
-    private int montant_max_virement;
+    private double solde;
     @Column
     private Date dateCreation;
-    @Column
-    private int duree_max_decouvert;
-    @Column
-    private Date date_decouvert;
     @Column(unique = true)
     private String IBAN;
-    @Column
-    private String BIC;
     @Column
     private String etat_compte;
 
     @OneToMany(mappedBy = "compte")
-    private List<Beneficiaire> beneficiares = new ArrayList<Beneficiaire>();
+    private List<Beneficiaire> beneficiaires = new ArrayList<Beneficiaire>();
 
     @OneToMany(mappedBy = "compte")
     private List<Virement> virements = new ArrayList<Virement>();
