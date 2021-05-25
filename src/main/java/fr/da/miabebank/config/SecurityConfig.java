@@ -1,6 +1,7 @@
 package fr.da.miabebank.config;
 
 import fr.da.miabebank.model.AuthToken;
+import fr.da.miabebank.model.Utilisateur;
 import fr.da.miabebank.repository.AuthTokenRepository;
 import fr.da.miabebank.service.UtilisateurService;
 import org.slf4j.Logger;
@@ -40,20 +41,20 @@ import java.util.Optional;
 @EnableWebSecurity
 @Controller
 public class SecurityConfig extends WebSecurityConfigurerAdapter implements WebMvcConfigurer {
-    /*@Autowired
+    @Autowired
     UtilisateurService userDetailsService;
 
     @Autowired
     AuthTokenRepository authTokenRepository;
 
-    @Value("${fr.da.auth.token}")
+    @Value("${com.serli.auth.token}")
     private String authToken;
 
 
-    @Value("${fr.da.csrf.token}")
+    @Value("${com.serli.csrf.token}")
     private String csrfCookieTokenName;
 
-    @Value("${fr.da.csrf.header.token}")
+    @Value("${com.serli.csrf.header.token}")
     private String csrfHeaderTokenName;
 
     @Override
@@ -63,7 +64,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter implements WebM
 
     @Override
     public void configure(final WebSecurity web) throws Exception {
-        web.ignoring().mvcMatchers("/img/**");
+        web.ignoring().mvcMatchers("/img/**", "/*.js", "/*.css", "/*.html");
     }
 
     @Override
@@ -163,5 +164,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter implements WebM
         registry.addViewController("/").setViewName("forward:login.html");
         registry.addViewController("/login").setViewName("forward:login.html");
         registry.addViewController("/livredor").setViewName("forward:livredor.html");
-    }*/
+    }
+
 }

@@ -8,6 +8,9 @@
     "build": "parcel build --public-url / -d /target/classes/public ./src/main/resources/static/index.html",
     "start-dev": "parcel --public-url / -d /target/classes/public ./src/main/resources/public/index.html"
   },
+  "style": {
+
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/alzerSniprrrr/miabe-bank.git"
@@ -24,6 +27,7 @@
     "@uirouter/angularjs": "^1.0.3",
     "angular": "1.6.5",
     "angular-cookies": "^1.7.7",
+    "bootstrap": "^4.6.0",
     "jquery": "^3.3.1"
   },
   "devDependencies": {
@@ -31,7 +35,9 @@
     "@babel/plugin-transform-runtime": "^7.4.3",
     "@babel/preset-env": "^7.4.3",
     "@types/angular-ui-router": "1.1.40",
+    "@types/node": "^15.6.0",
     "autoprefixer": "^9.5.0",
-    "parcel-bundler": "^1.12.3"
+    "parcel-bundler": "^1.12.3",
+    "typescript": "^4.2.4"
   }
 }
