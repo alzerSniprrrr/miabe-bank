@@ -1,0 +1,83 @@
+<h1 style="text-align: center"> Effectuer un virement </h1>
+
+<div class="container" style="margin: 0 auto ">
+
+
+
+
+
+
+
+    <div class="mb-3 col-4">
+        <label  class="form-label">Bénéficiaire</label>
+
+
+        <input class="form-control" list="datalistOptions" id="exampleDataList" placeholder="Rechercher...">
+        <a href="">Ajouter un bénéficiaire</a>
+        <datalist id="datalistOptions">
+            <option value="Toto">
+            <option value="Tata">
+
+        </datalist>                      <div class="invalid-feedback">
+        Veuillez choisir un bénéficiaire !
+    </div>
+    </div>
+    <div class="mb-3 col-4">
+        <label  class="form-label">Montant</label>
+        <div class="input-group mb-3">
+            <span class="input-group-text">€</span>
+            <input type="text"  name="montant"class="form-control" aria-label="Amount (to the nearest dollar)">
+        </div>
+        <div class="invalid-feedback">
+            Veuillez saisir un montant !
+        </div>
+    </div>
+
+    <div class="mb-3 col-4">
+        <label  class="form-label">Motif</label>
+        <input type="text" class="form-control" name="motif" required>
+        <div class="invalid-feedback">
+            Veuillez saisir un motif !
+        </div>
+    </div>
+
+
+
+
+    <button class="btn btn-primary" name="action" type="submit">Envoyer</button>
+
+
+</div>
+
+<h1 style="text-align: center"> Historique de virement </h1>
+
+<div class="container" style="margin: 0 auto ">
+    <div class="list-group">
+        <a href="#" class="list-group-item list-group-item-action" aria-current="true">
+            <div class="d-flex w-100 justify-content-between">
+                <h5 class="mb-1">Nom Beneficiaire</h5>
+                <small>3 days ago</small>
+            </div>
+            <p class="mb-1">Montant</p>
+            <small>motif</small>
+        </a>
+        <a href="#" class="list-group-item list-group-item-action">
+            <div class="d-flex w-100 justify-content-between">
+                <h5 class="mb-1">Nom Beneficiaire</h5>
+                <small>3 days ago</small>
+            </div>
+            <p class="mb-1">Montant</p>
+            <small>motif</small>
+        </a>
+        <a href="#" class="list-group-item list-group-item-action">
+            <div class="d-flex w-100 justify-content-between">
+                <h5 class="mb-1">Nom Beneficiaire</h5>
+                <small>3 days ago</small>
+            </div>
+            <p class="mb-1">Montant</p>
+            <small>motif</small>
+        </a>
+    </div>
+
+
+</div>

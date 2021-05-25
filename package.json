@@ -8,9 +8,7 @@
     "build": "parcel build --public-url / -d /target/classes/public ./src/main/resources/static/index.html",
     "start-dev": "parcel --public-url / -d /target/classes/public ./src/main/resources/public/index.html"
   },
-  "style": {
-
-  },
+  "style": {},
   "repository": {
     "type": "git",
     "url": "git+https://github.com/alzerSniprrrr/miabe-bank.git"
