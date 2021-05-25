@@ -1,22 +1,37 @@
 import angular  from 'angular';
 import Dashboard from "./dashboard";
 import User from "./user/user";
+import Virement from "./virement/virement"
+import Beneficiaire from "./beneficiaire/beneficiaire"
 import "../style/app.css";import "jquery";
 
 
 import UserComponent from './user/user';
 import DashboardComponent from "./dashboard";
+import VirementComponent from "./virement/virement"
+import BeneficiaireComponent from "./beneficiaire/beneficiaire"
 import uirouter from '@uirouter/angularjs';
 
 import "@fortawesome/fontawesome-free/css/all.min.css";
 
 import {default as userServiceName, UtilisateurService} from "../service/UtilisateurService";
+import {default as virementServiceName, VirementService} from "../service/VirementService";
+import {default as beneficiaireServiceName, BeneficiaireService} from "../service/BeneficiaireService";
+
 import dashboard from "./dashboard";
+import virement from "./virement/virement";
+
+import beneficiaire from "./beneficiaire/beneficiaire";
 // Declare livredor level module which depends on views, and core components
 angular.module('app', [uirouter])
     .component(Dashboard.name, dashboard.component)
     .component(User.name, User.component)
+    .component(Virement.name, virement.component)
+    .component(Beneficiaire.name, beneficiaire.component)
     .service(userServiceName, UtilisateurService)
+    .service(virementServiceName, VirementService)
+    .service(beneficiaireServiceName, BeneficiaireService)
+
     .config(['$stateProvider', '$urlRouterProvider', function ($stateProvider:any, $urlRouterProvider:any) {
 
         const home = {
@@ -112,7 +127,7 @@ angular.module('app', [uirouter])
                             '  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">\n' +
                             '    <div class="navbar-nav">\n' +
                             '      <a class="nav-link active" aria-current="page" href="">Dashboard</a>\n' +
-                            '      <a class="nav-link" href="">Virements</a>\n' +
+                            '      <a class="nav-link" href="#!/dashboard/virement">Virements</a>\n' +
                             '      <a class="nav-link" href="">Mes comptes</a>\n' +
                             '      <a class="nav-link" href="">Ecrire a mon conseiller</a>\n' +
                             '      <a class="nav-link" href="">Mes operations</a>\n' +
@@ -140,6 +155,72 @@ angular.module('app', [uirouter])
             }
         };
 
+        const virement = {
+            name: "virement",
+            state: {
+                url: "/dashboard/virement",
+                views: {
+                    'main@': {
+                        component: VirementComponent.name
+                    },
+                    'nav@': {
+                        template: '<div class="container-fluid">\n' +
+                            '  <a class="navbar-brand" href="">Miabe Bank</a>\n' +
+                            '  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">\n' +
+                            '    <span class="navbar-toggler-icon"></span>\n' +
+                            '  </button>\n' +
+                            '  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">\n' +
+                            '    <div class="navbar-nav">\n' +
+                            '      <a class="nav-link active" aria-current="page" href="">Dashboard</a>\n' +
+                            '      <a class="nav-link" href="#!/dashboard/virement">Virements</a>\n' +
+                            '      <a class="nav-link" href="">Mes comptes</a>\n' +
+                            '      <a class="nav-link" href="">Ecrire a mon conseiller</a>\n' +
+                            '      <a class="nav-link" href="">Mes operations</a>\n' +
+                            '      <a class="nav-link" href="">Mon profil</a>\n' +
+                            '      <a class="nav-link" href=""> Déconnexion </a>\n' +
+                            '\n' +
+                            '\n' +
+                            '    </div>\n' +
+                            '  </div>\n' +
+                            '</div>'
+                    }
+                }
+            }
+        };
+
+        const beneficiaire = {
+            name: "beneficiaire",
+            state: {
+                url: "/dashboard/beneficiaire",
+                views: {
+                    'main@': {
+                        component: BeneficiaireComponent.name
+                    },
+                    'nav@': {
+                        template: '<div class="container-fluid">\n' +
+                            '  <a class="navbar-brand" href="">Miabe Bank</a>\n' +
+                            '  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">\n' +
+                            '    <span class="navbar-toggler-icon"></span>\n' +
+                            '  </button>\n' +
+                            '  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">\n' +
+                            '    <div class="navbar-nav">\n' +
+                            '      <a class="nav-link active" aria-current="page" href="">Dashboard</a>\n' +
+                            '      <a class="nav-link" href="#!/dashboard/virement">Virements</a>\n' +
+                            '      <a class="nav-link" href="">Mes comptes</a>\n' +
+                            '      <a class="nav-link" href="">Ecrire a mon conseiller</a>\n' +
+                            '      <a class="nav-link" href="">Mes operations</a>\n' +
+                            '      <a class="nav-link" href="">Mon profil</a>\n' +
+                            '      <a class="nav-link" href=""> Déconnexion </a>\n' +
+                            '\n' +
+                            '\n' +
+                            '    </div>\n' +
+                            '  </div>\n' +
+                            '</div>'
+                    }
+                }
+            }
+        };
+
 
 
         $urlRouterProvider.otherwise("/");
@@ -152,6 +233,10 @@ angular.module('app', [uirouter])
         $stateProvider
             .state(user.name, user.state)
 
+        $stateProvider
+            .state(virement.name, virement.state)
+        $stateProvider
+            .state(beneficiaire.name, beneficiaire.state)
     }])
 
 
