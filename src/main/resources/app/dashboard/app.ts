@@ -71,7 +71,7 @@ angular.module('app', [uirouter])
                             '<!-- FIN FEATURES -->'
                     },
                     'nav@': {
-                        template: '<a class="navbar-brand" href="#">Miabe Bank</a>\n' +
+                        template: '<a class="navbar-brand" href="#!/">Miabe Bank</a>\n' +
                             '<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">\n' +
                             '  <span class="navbar-toggler-icon"></span>\n' +
                             '</button>\n' +
@@ -84,11 +84,11 @@ angular.module('app', [uirouter])
                             '</div>\n' +
                             '\n' +
                             '\n' +
-                            '<button class="btn btn-outline-success" ><a href="" style="text-decoration: none; color:black ">Je suis client</a></button>\n' +
+                            '<!--<button class="btn btn-outline-success" >--><a ui-sref=".login" style="text-decoration: none; color:black ">Je suis client</a><!--</button>-->\n' +
                             '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\n' +
                             '<button class="btn btn-outline-success" ><a href="" style="text-decoration: none; color:black">S\'inscrire</a></button>\n' +
                             '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\n' +
-                            '<button class="btn btn-outline-success" ><a href="" style="text-decoration: none; color:black">Je suis conseiller</a></button>\n'
+                            '<button class="btn btn-outline-success" ><a href="" style="text-decoration: none; color:black">Je suis admin</a></button>\n'
                     }
 
                 }
@@ -128,6 +128,18 @@ angular.module('app', [uirouter])
             }
         };
 
+        const yes = {
+            name: "dashboard.yes",
+            state: {
+                url: "/yes",
+                views: {
+                    'main@': {
+                        template: 'sdjsjfsjfkks'
+                    }
+                }
+            }
+        };
+
         const user = {
             name: "user",
             state: {
@@ -150,7 +162,10 @@ angular.module('app', [uirouter])
             .state(dashboard.name, dashboard.state);
 
         $stateProvider
-            .state(user.name, user.state)
+            .state(user.name, user.state);
+
+        $stateProvider
+            .state(yes.name, yes.state)
 
     }])
 

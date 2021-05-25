@@ -1,16 +1,18 @@
-import {bootstrap, module} from 'angular';
+//import {bootstrap, module} from 'angular';
+import angular from "angular";
 import Login from "./login/login";
 //
 import uirouter from '@uirouter/angularjs';
 import LoginComponent from './login/login'
 import {default as userServiceName, UtilisateurService} from "../service/UtilisateurService";
 
-module('login', [
+// @ts-ignore
+angular.module('login', [
     uirouter,
 ])
     .component(Login.name, Login.component)
     .service(userServiceName, UtilisateurService)
-    .config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $urlRouterProvider) {
+    .config(['$stateProvider', '$urlRouterProvider', function ($stateProvider:any, $urlRouterProvider:any) {
 
 
         const login = {
@@ -49,4 +51,4 @@ module('login', [
 
     }])
 ;
-bootstrap(document.body, ['login']);
+angular.bootstrap(document.body, ['login']);
