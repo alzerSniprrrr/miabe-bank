@@ -86,7 +86,7 @@ angular.module('app', [uirouter])
                             '<!-- FIN FEATURES -->'
                     },
                     'nav@': {
-                        template: '<a class="navbar-brand" href="#">Miabe Bank</a>\n' +
+                        template: '<a class="navbar-brand" href="#!/">Miabe Bank</a>\n' +
                             '<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">\n' +
                             '  <span class="navbar-toggler-icon"></span>\n' +
                             '</button>\n' +
@@ -99,11 +99,11 @@ angular.module('app', [uirouter])
                             '</div>\n' +
                             '\n' +
                             '\n' +
-                            '<button class="btn btn-outline-success" ><a href="" style="text-decoration: none; color:black ">Je suis client</a></button>\n' +
+                            '<!--<button class="btn btn-outline-success" >--><a ui-sref=".login" style="text-decoration: none; color:black ">Je suis client</a><!--</button>-->\n' +
                             '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\n' +
                             '<button class="btn btn-outline-success" ><a href="" style="text-decoration: none; color:black">S\'inscrire</a></button>\n' +
                             '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\n' +
-                            '<button class="btn btn-outline-success" ><a href="" style="text-decoration: none; color:black">Je suis conseiller</a></button>\n'
+                            '<button class="btn btn-outline-success" ><a href="" style="text-decoration: none; color:black">Je suis admin</a></button>\n'
                     }
 
                 }
@@ -120,16 +120,15 @@ angular.module('app', [uirouter])
                     },
                     'nav@': {
                         template: '<div class="container-fluid">\n' +
-                            '  <a class="navbar-brand" href="">Miabe Bank</a>\n' +
+                            '  <a class="navbar-brand" href="#!/">Miabe Bank</a>\n' +
                             '  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">\n' +
                             '    <span class="navbar-toggler-icon"></span>\n' +
                             '  </button>\n' +
                             '  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">\n' +
                             '    <div class="navbar-nav">\n' +
-                            '      <a class="nav-link active" aria-current="page" href="">Dashboard</a>\n' +
+                            '      <a class="nav-link active" aria-current="page" href="#!/dashboard">Dashboard</a>\n' +
                             '      <a class="nav-link" href="#!/dashboard/virement">Virements</a>\n' +
-                            '      <a class="nav-link" href="">Mes comptes</a>\n' +
-                            '      <a class="nav-link" href="">Ecrire a mon conseiller</a>\n' +
+                            '      <a class="nav-link" href="#!/dashboard/account">Mes comptes</a>\n' +
                             '      <a class="nav-link" href="">Mes operations</a>\n' +
                             '      <a class="nav-link" href="">Mon profil</a>\n' +
                             '      <a class="nav-link" href=""> Déconnexion </a>\n' +
@@ -156,66 +155,24 @@ angular.module('app', [uirouter])
         };
 
         const virement = {
-            name: "virement",
+            name: "dashboard.virement",
             state: {
-                url: "/dashboard/virement",
+                url: "/virement",
                 views: {
                     'main@': {
                         component: VirementComponent.name
-                    },
-                    'nav@': {
-                        template: '<div class="container-fluid">\n' +
-                            '  <a class="navbar-brand" href="">Miabe Bank</a>\n' +
-                            '  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">\n' +
-                            '    <span class="navbar-toggler-icon"></span>\n' +
-                            '  </button>\n' +
-                            '  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">\n' +
-                            '    <div class="navbar-nav">\n' +
-                            '      <a class="nav-link active" aria-current="page" href="">Dashboard</a>\n' +
-                            '      <a class="nav-link" href="#!/dashboard/virement">Virements</a>\n' +
-                            '      <a class="nav-link" href="">Mes comptes</a>\n' +
-                            '      <a class="nav-link" href="">Ecrire a mon conseiller</a>\n' +
-                            '      <a class="nav-link" href="">Mes operations</a>\n' +
-                            '      <a class="nav-link" href="">Mon profil</a>\n' +
-                            '      <a class="nav-link" href=""> Déconnexion </a>\n' +
-                            '\n' +
-                            '\n' +
-                            '    </div>\n' +
-                            '  </div>\n' +
-                            '</div>'
                     }
                 }
             }
         };
 
         const beneficiaire = {
-            name: "beneficiaire",
+            name: "dashboard.beneficiaire",
             state: {
-                url: "/dashboard/beneficiaire",
+                url: "/beneficiaire",
                 views: {
                     'main@': {
                         component: BeneficiaireComponent.name
-                    },
-                    'nav@': {
-                        template: '<div class="container-fluid">\n' +
-                            '  <a class="navbar-brand" href="">Miabe Bank</a>\n' +
-                            '  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">\n' +
-                            '    <span class="navbar-toggler-icon"></span>\n' +
-                            '  </button>\n' +
-                            '  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">\n' +
-                            '    <div class="navbar-nav">\n' +
-                            '      <a class="nav-link active" aria-current="page" href="">Dashboard</a>\n' +
-                            '      <a class="nav-link" href="#!/dashboard/virement">Virements</a>\n' +
-                            '      <a class="nav-link" href="">Mes comptes</a>\n' +
-                            '      <a class="nav-link" href="">Ecrire a mon conseiller</a>\n' +
-                            '      <a class="nav-link" href="">Mes operations</a>\n' +
-                            '      <a class="nav-link" href="">Mon profil</a>\n' +
-                            '      <a class="nav-link" href=""> Déconnexion </a>\n' +
-                            '\n' +
-                            '\n' +
-                            '    </div>\n' +
-                            '  </div>\n' +
-                            '</div>'
                     }
                 }
             }
@@ -231,10 +188,10 @@ angular.module('app', [uirouter])
             .state(dashboard.name, dashboard.state);
 
         $stateProvider
-            .state(user.name, user.state)
+            .state(user.name, user.state);
 
         $stateProvider
-            .state(virement.name, virement.state)
+            .state(virement.name, virement.state);
         $stateProvider
             .state(beneficiaire.name, beneficiaire.state)
     }])

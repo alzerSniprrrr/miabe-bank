@@ -18,6 +18,7 @@ public class Compte {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long idCompte;
+
     @Column
     private String type;
     @Column

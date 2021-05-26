@@ -2,13 +2,11 @@
   "name": "miabe-bank",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "parcel build --public-url / -d /target/classes/public ./src/main/resources/static/index.html",
-    "start-dev": "parcel --public-url / -d /target/classes/public ./src/main/resources/public/index.html"
+    "build": "parcel build --public-url / -d /target/classes/public ./src/main/resources/static/index.html ./src/main/resources/static/login.html",
+    "start-dev": "parcel --public-url / -d /target/classes/public ./src/main/resources/public/index.html ./src/main/resources/public/login.html"
   },
-  "style": {},
   "repository": {
     "type": "git",
     "url": "git+https://github.com/alzerSniprrrr/miabe-bank.git"

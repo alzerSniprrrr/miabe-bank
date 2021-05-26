@@ -10,9 +10,9 @@ const component={
     controllerAs: 'ctrl',
 }
 
-const BenefciaireComponent = {
+const BeneficiaireComponent = {
     name: 'benefciaire',
     component
 };
 
-export default BenefciaireComponent;
+export default BeneficiaireComponent;
