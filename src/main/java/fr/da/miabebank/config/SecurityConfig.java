@@ -163,7 +163,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter implements WebM
     public void addViewControllers(ViewControllerRegistry registry) {
         registry.addViewController("/").setViewName("forward:login.html");
         registry.addViewController("/login").setViewName("forward:login.html");
-        registry.addViewController("/dashboard").setViewName("forward:index_.html");
+        registry.addViewController("/dashboard").setViewName("forward:index.html");
     }
 
 }
