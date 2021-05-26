@@ -21,7 +21,6 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.Date;
 import java.util.UUID;
-
 @RestController
 @RequestMapping("/api/utilisateur")
 public class UtilisateurController {

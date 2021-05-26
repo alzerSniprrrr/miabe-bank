@@ -47,14 +47,14 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter implements WebM
     @Autowired
     AuthTokenRepository authTokenRepository;
 
-    @Value("${com.serli.auth.token}")
+    @Value("${fr.da.auth.token}")
     private String authToken;
 
 
-    @Value("${com.serli.csrf.token}")
+    @Value("${fr.da.csrf.token}")
     private String csrfCookieTokenName;
 
-    @Value("${com.serli.csrf.header.token}")
+    @Value("${fr.da.csrf.header.token}")
     private String csrfHeaderTokenName;
 
     @Override
