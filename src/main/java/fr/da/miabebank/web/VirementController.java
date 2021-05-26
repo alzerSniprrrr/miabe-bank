@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.*;
 import java.util.Collection;
 import java.util.Optional;
 
+@RestController
+@RequestMapping("/api/virements")
 public class VirementController {
 
     private VirementRepository virementRepository;
