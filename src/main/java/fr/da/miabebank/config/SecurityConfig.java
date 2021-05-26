@@ -47,14 +47,14 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter implements WebM
     @Autowired
     AuthTokenRepository authTokenRepository;
 
-    @Value("${com.serli.auth.token}")
+    @Value("${fr.da.auth.token}")
     private String authToken;
 
 
-    @Value("${com.serli.csrf.token}")
+    @Value("${fr.da.csrf.token}")
     private String csrfCookieTokenName;
 
-    @Value("${com.serli.csrf.header.token}")
+    @Value("${fr.da.csrf.header.token}")
     private String csrfHeaderTokenName;
 
     @Override
@@ -77,7 +77,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter implements WebM
 
         http
                 .authorizeRequests()
-                .antMatchers("/api/user/login", "/", "/login", "/livredor", "/error", "/css/*").permitAll()
+                .antMatchers("/api/utilisateur/login", "/", "/login", "/dashboard", "/error", "/css/*").permitAll()
                 .antMatchers(HttpMethod.DELETE, "/api/comments").hasAuthority("ROLE_ADMIN")
                 .anyRequest().authenticated();
 
@@ -86,7 +86,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter implements WebM
 
         http
                 .logout()
-                .logoutUrl("/api/user/logout")
+                .logoutUrl("/api/utilsateur/logout")
                 .logoutSuccessHandler(getLogoutSuccessHandler())
                 .logoutSuccessUrl("/login")
                 .invalidateHttpSession(true)
@@ -95,7 +95,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter implements WebM
         http
                 .csrf()
                 .requireCsrfProtectionMatcher(request ->
-                        ("/api/user/login".equals(request.getRequestURI())
+                        ("/api/utilisateur/login".equals(request.getRequestURI())
                                 || ("/api/comments".equals(request.getRequestURI()) && HttpMethod.POST.matches(request.getMethod())
                         ))
                 )
@@ -163,7 +163,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter implements WebM
     public void addViewControllers(ViewControllerRegistry registry) {
         registry.addViewController("/").setViewName("forward:login.html");
         registry.addViewController("/login").setViewName("forward:login.html");
-        registry.addViewController("/livredor").setViewName("forward:livredor.html");
+        registry.addViewController("/dashboard").setViewName("forward:index_.html");
     }
 
 }

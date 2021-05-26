@@ -78,7 +78,7 @@ public class UtilisateurController {
             tokenCookie.setHttpOnly(true);
             tokenCookie.setMaxAge(expiredTime);
             response.addCookie(tokenCookie);
-            response.sendRedirect("/livredor");
+            response.sendRedirect("/dashboard");
         } catch (Exception e) {
             response.sendError(HttpStatus.LOCKED.value());
         }
