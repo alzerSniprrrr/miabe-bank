@@ -1,83 +1,57 @@
-<h1 style="text-align: center"> Effectuer un virement </h1>
+<h1 style="text-align: center"> Ajouter un bénéficiaire </h1>
 
 <div class="container" style="margin: 0 auto ">
 
-
-
-
-
-
-
-    <div class="mb-3 col-4">
-        <label  class="form-label">Bénéficiaire</label>
-
-
-        <input class="form-control" list="datalistOptions" id="exampleDataList" placeholder="Rechercher...">
-        <a href="">Ajouter un bénéficiaire</a>
-        <datalist id="datalistOptions">
-            <option value="Toto">
-            <option value="Tata">
-
-        </datalist>                      <div class="invalid-feedback">
-        Veuillez choisir un bénéficiaire !
-    </div>
+    <div ng-if="ctrl.isSuccess" class="alert alert-success" role="alert">
+        Bénéficiaire ajouté avec succès !
     </div>
     <div class="mb-3 col-4">
-        <label  class="form-label">Montant</label>
-        <div class="input-group mb-3">
-            <span class="input-group-text">€</span>
-            <input type="text"  name="montant"class="form-control" aria-label="Amount (to the nearest dollar)">
-        </div>
+        <label  class="form-label">Iban</label>
+        <input    ng-model="ctrl.iban" type="text" class="form-control" name="iban" required>
         <div class="invalid-feedback">
-            Veuillez saisir un montant !
+            Veuillez saisir un iban !
         </div>
     </div>
 
     <div class="mb-3 col-4">
-        <label  class="form-label">Motif</label>
-        <input type="text" class="form-control" name="motif" required>
+        <label  class="form-label"> Nom </label>
+        <input ng-model="ctrl.nom" type="text" class="form-control" name="nom" required>
         <div class="invalid-feedback">
-            Veuillez saisir un motif !
+            Veuillez saisir un nom !
+        </div>
+    </div>
+
+    <div class="mb-3 col-4">
+        <label  class="form-label">Prénom</label>
+        <input ng-model="ctrl.prenom" type="text" class="form-control" name="prenom" required>
+        <div class="invalid-feedback">
+            Veuillez saisir un prenom !
         </div>
     </div>
 
 
 
 
-    <button class="btn btn-primary" name="action" type="submit">Envoyer</button>
+    <button class="btn btn-primary" ng-click="ctrl.valider()">Envoyer</button>
 
 
 </div>
 
-<h1 style="text-align: center"> Historique de virement </h1>
+<h1 style="text-align: center"> Mes bénéficiaires </h1>
 
 <div class="container" style="margin: 0 auto ">
     <div class="list-group">
-        <a href="#" class="list-group-item list-group-item-action" aria-current="true">
+
+        <a href="#" class="list-group-item list-group-item-action" aria-current="true" ng-repeat="beneficiaire in ctrl.beneficiaires track by $index">
             <div class="d-flex w-100 justify-content-between">
-                <h5 class="mb-1">Nom Beneficiaire</h5>
-                <small>3 days ago</small>
+                <h5 class="mb-1" >Nom: {{beneficiaire.nom}}</h5>
             </div>
-            <p class="mb-1">Montant</p>
-            <small>motif</small>
+            <p class="mb-1">Prenom: {{beneficiaire.prenom}}</p>
+            <small>IBAN: {{beneficiaire.iban}}</small>
         </a>
-        <a href="#" class="list-group-item list-group-item-action">
-            <div class="d-flex w-100 justify-content-between">
-                <h5 class="mb-1">Nom Beneficiaire</h5>
-                <small>3 days ago</small>
-            </div>
-            <p class="mb-1">Montant</p>
-            <small>motif</small>
-        </a>
-        <a href="#" class="list-group-item list-group-item-action">
-            <div class="d-flex w-100 justify-content-between">
-                <h5 class="mb-1">Nom Beneficiaire</h5>
-                <small>3 days ago</small>
-            </div>
-            <p class="mb-1">Montant</p>
-            <small>motif</small>
-        </a>
+
     </div>
 
 
 </div>
+

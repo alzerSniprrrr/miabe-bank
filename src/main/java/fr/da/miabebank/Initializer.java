@@ -1,6 +1,8 @@
 package fr.da.miabebank;
 
+import fr.da.miabebank.model.Beneficiaire;
 import fr.da.miabebank.model.Utilisateur;
+import fr.da.miabebank.repository.BeneficiaireRepository;
 import fr.da.miabebank.repository.UtilisateurRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -12,29 +14,26 @@ import org.springframework.stereotype.Component;
 public class Initializer implements CommandLineRunner {
     private final UtilisateurRepository repository;
     private final BCryptPasswordEncoder bCryptPasswordEncoder;
+    private final BeneficiaireRepository beneficiaireRepository;
     private static final Logger logger = LoggerFactory.getLogger(Initializer.class);
 
-    public Initializer(UtilisateurRepository repository, BCryptPasswordEncoder encoder) {
+    public Initializer(UtilisateurRepository repository, BCryptPasswordEncoder encoder, BeneficiaireRepository beneficiaireRepository) {
         this.repository = repository;
         this.bCryptPasswordEncoder = encoder;
+        this.beneficiaireRepository = beneficiaireRepository;
     }
 
     @Override
     public void run(String... strings) {
 
 
-         for (int i = 1; i < 5; i++) {
-                    Utilisateur user = new Utilisateur(null,"test" + i, "testprenom" + i, "test" + i + "@test.com", this.bCryptPasswordEncoder.encode("test" + i), false,null);
-                    if(i==1){
-                        user.setAdmin(true);
-                    }
-                    repository.save(user);
-         }
+      /*   for (int i = 1; i < 5; i++) {
 
-        for (int i = 1; i < 5; i++) {
-            logger.info(""+repository.findByEmail("test" + i + "@test.com").isPresent());
+             Beneficiaire beneficiaire = new Beneficiaire("FFFFTEZEZEFEZ"+i, "toto");
+             beneficiaire.setPrenom("toto");
+             beneficiaireRepository.save(beneficiaire);
+         }*/
 
-        }
 
     }
 

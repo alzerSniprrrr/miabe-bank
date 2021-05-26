@@ -1,4 +1,5 @@
 import {UtilisateurService, default as userServiceName} from "../service/UtilisateurService";
+import CompteService from "../service/CompteService";
 //import {CommentService, default as commentServiceName} from "../../service/CommentService";
 
 export default class DashboardCtrl {
@@ -9,10 +10,9 @@ export default class DashboardCtrl {
         //commentServiceName,
         "$state"
     ]
-   // private comments: Array<any>;
-    private newCommentText: string='';
+    private soldeCompte: string='';
 
-    constructor(private userService:UtilisateurService, private $sce:any, private $state:any) {
+    constructor(private userService:UtilisateurService, private compteService: CompteService, private $sce:any, private $state:any) {
     }
 
     $onInit() {
@@ -20,6 +20,13 @@ export default class DashboardCtrl {
             .then((response:any) => {
 
             });
+
+        this.compteService.getCompte(1)
+            .then((response:any) =>{
+
+                this.soldeCompte = response.solde
+
+        });
     }
 
     /*loadComments() {

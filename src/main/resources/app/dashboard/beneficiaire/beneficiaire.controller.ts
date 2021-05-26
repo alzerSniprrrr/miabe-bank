@@ -1,5 +1,6 @@
 import {UtilisateurService, default as userServiceName} from "../../service/UtilisateurService";
 import {BeneficiaireService, default as beneficiaireServiceName} from "../../service/BeneficiaireService";
+import {Compte} from "../../model/Compte";
 
 export default class BeneficiaireCtrl {
 
@@ -10,9 +11,13 @@ export default class BeneficiaireCtrl {
         "$state"
     ]
     private beneficiaires: Array<any>;
-    private newBeneficiaireText: string;
+    private nom: string;
+    private prenom: string;
+    private iban: string;
+    private compte: Compte;
+    private isSuccess: boolean = false;
 
-    constructor(private userService:UserService, private $sce, private beneficiaireService:BeneficiaireService, private $state) {
+    constructor(private userService:UtilisateurService, private $sce, private beneficiaireService:BeneficiaireService, private $state) {
     }
 
     $onInit() {
@@ -36,11 +41,12 @@ export default class BeneficiaireCtrl {
     }
 
     async valider() {
-        if (this.newBeneficiaireText) {
-            await this.loadBeneficiaires();
-            let response = await this.beneficiaireService.addBeneficiaire(this.newBeneficiaireText);
+        if (this.nom) {
+           // await this.loadBeneficiaires();
+            let response = await this.beneficiaireService.addBeneficiaire(this.iban, this.nom, this.prenom);
             if (response.status === 200) {
                 this.closeNewBeneficiaire();
+                this.isSuccess = true;
             }
         } else {
             alert("Il faut saisir un texte.")

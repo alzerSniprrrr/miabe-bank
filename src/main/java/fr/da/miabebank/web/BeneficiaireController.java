@@ -9,6 +9,7 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/beneficiaires")
+@CrossOrigin(origins = "http://localhost:1234")
 public class BeneficiaireController {
 
     private BeneficiaireRepository beneficiaireRepository;
@@ -21,7 +22,7 @@ public class BeneficiaireController {
         return  beneficiaireRepository.findAll();
     }
 
-    @PostMapping
+    @PostMapping("/add")
     void save(@RequestBody Beneficiaire beneficiaire) {
         beneficiaireRepository.save(beneficiaire);
     }
