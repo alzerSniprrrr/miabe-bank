@@ -31,6 +31,11 @@ public class Utilisateur implements UserDetails {
     @OneToMany(mappedBy = "client")
     private List<Compte> comptes = new ArrayList<>();
 
+    public Utilisateur(String name, String email, String password){
+        this.nom=name;
+        this.email = email;
+        this.motDePasse = password;
+    }
     @Override
     @JsonIgnore
     public Collection<? extends GrantedAuthority> getAuthorities() {
