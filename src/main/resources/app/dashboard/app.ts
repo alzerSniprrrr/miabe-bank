@@ -17,11 +17,13 @@ import "@fortawesome/fontawesome-free/css/all.min.css";
 import {default as userServiceName, UtilisateurService} from "../service/UtilisateurService";
 import {default as virementServiceName, VirementService} from "../service/VirementService";
 import {default as beneficiaireServiceName, BeneficiaireService} from "../service/BeneficiaireService";
+import {default as compteServiceName, CompteService} from "../service/CompteService";
 
 import dashboard from "./dashboard";
 import virement from "./virement/virement";
 
 import beneficiaire from "./beneficiaire/beneficiaire";
+import {Compte} from "../model/Compte";
 // Declare livredor level module which depends on views, and core components
 angular.module('app', [uirouter])
     .component(Dashboard.name, dashboard.component)
@@ -31,7 +33,7 @@ angular.module('app', [uirouter])
     .service(userServiceName, UtilisateurService)
     .service(virementServiceName, VirementService)
     .service(beneficiaireServiceName, BeneficiaireService)
-
+    .service(compteServiceName, CompteService)
     .config(['$stateProvider', '$urlRouterProvider', function ($stateProvider:any, $urlRouterProvider:any) {
 
         const home = {

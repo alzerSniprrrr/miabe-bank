@@ -1,34 +1,39 @@
 import {UtilisateurService, default as userServiceName} from "../service/UtilisateurService";
-import CompteService from "../service/CompteService";
-//import {CommentService, default as commentServiceName} from "../../service/CommentService";
+import {CompteService, default as compteServiceName} from "../service/CompteService";
 
 export default class DashboardCtrl {
 
     private static readonly $inject=[
         userServiceName,
         "$sce",
-        //commentServiceName,
+        compteServiceName,
         "$state"
     ]
     private soldeCompte: string='';
 
-    constructor(private userService:UtilisateurService, private compteService: CompteService, private $sce:any, private $state:any) {
+    constructor(private userService:UtilisateurService, private compteService:CompteService, private $sce:any, private $state:any) {
     }
 
     $onInit() {
+
         this.userService.getCurrentUser()
             .then((response:any) => {
 
             });
 
-        this.compteService.getCompte(1)
-            .then((response:any) =>{
-
-                this.soldeCompte = response.solde
-
-        });
     }
 
+
+    getCompte(){
+
+        this.compteService.getCompte(1)
+            .then((response:any) => {
+
+                console.log(response);
+                this.soldeCompte = response.solde
+
+            });
+    }
     /*loadComments() {
         return this.commentService.loadComments()
             .then((response) => {

@@ -30,6 +30,7 @@ export class BeneficiaireService {
             })
     }
 
+
     addBeneficiaire(iban, nom, prenom) {
         this.beneficiaire1.iban = iban;
         this.beneficiaire1.nom = nom;
