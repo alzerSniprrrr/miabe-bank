@@ -5,12 +5,12 @@
 <div ui-view="main">
     <div style="margin-top: 50px">
         <div class="row">
-            <div class="col-12 col-lg-4">
+            <div class="col-12 col-lg-4"  ng-repeat="compte in ctrl.comptes track by $index">>
                 <div class="card">
 
                     <div class="card-body">
-                        <h5 class="card-title">Solde compte courant</h5>
-                        <p class="card-text">{{ctrl.soldeCompte}}</p>
+                        <h5 class="card-title">compte.type</h5>
+                        <p class="card-text">{{ctrl.compte.solde}}</p>
                         <p class="card-text"><a href="#!/login" style="text-decoration: none"><i class="bi bi-eye"></i> Voir plus de détails</a></p>
 
                 </div>

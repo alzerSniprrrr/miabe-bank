@@ -10,18 +10,21 @@ export default class DashboardCtrl {
         "$state"
     ]
     private soldeCompte: string='';
+    private comptes: Array<any>;
 
-    constructor(private userService:UtilisateurService, private compteService:CompteService, private $sce:any, private $state:any) {
+    constructor(private userService:UtilisateurService,  private $sce:any,private compteService:CompteService, private $state:any) {
     }
 
     $onInit() {
-        this.compteService.getCompte(1)
-            .then((response:any) => {
+
+        this.compteService.getCompte(1).then(
+            (response:any) => {
 
                 console.log(response);
-                this.soldeCompte = response.solde
+                this.comptes = response;
+            }
+        );
 
-            });
         this.userService.getCurrentUser()
             .then((response:any) => {
 

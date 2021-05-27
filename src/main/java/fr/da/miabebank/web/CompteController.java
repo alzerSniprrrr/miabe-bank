@@ -12,6 +12,7 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/comptes")
+@CrossOrigin(origins = "http://localhost:1234")
 public class CompteController {
 
     private CompteRepository compteRepository;
@@ -30,9 +31,9 @@ public class CompteController {
     }
 
     @GetMapping("/{id}")
-    ResponseEntity<Compte> getCompte(@PathVariable("id") Long id) {
-        Compte compte = compteRepository.findById(id).orElse(new Compte());
-        return ResponseEntity.ok().body(compte);
+    Collection<Compte> getCompte(@PathVariable("id") Long id) {
+        return compteRepository.findByClient(id);
+
     }
 
     @DeleteMapping
