@@ -15,17 +15,6 @@ export default class DashboardCtrl {
     }
 
     $onInit() {
-
-        this.userService.getCurrentUser()
-            .then((response:any) => {
-
-            });
-
-    }
-
-
-    getCompte(){
-
         this.compteService.getCompte(1)
             .then((response:any) => {
 
@@ -33,7 +22,13 @@ export default class DashboardCtrl {
                 this.soldeCompte = response.solde
 
             });
+        this.userService.getCurrentUser()
+            .then((response:any) => {
+
+            });
+
     }
+
     /*loadComments() {
         return this.commentService.loadComments()
             .then((response) => {
