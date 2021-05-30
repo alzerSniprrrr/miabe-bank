@@ -17,13 +17,10 @@ export default class DashboardCtrl {
 
     $onInit() {
 
-        this.compteService.getCompte(1).then(
-            (response:any) => {
-
-                console.log(response);
-                this.comptes = response;
-            }
-        );
+        this.compteService.getCompte(1)
+                    .then((response) => {
+                        this.comptes = response.data;
+            });
 
         this.userService.getCurrentUser()
             .then((response:any) => {

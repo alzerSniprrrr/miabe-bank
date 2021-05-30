@@ -1,0 +1,60 @@
+<h1 style="text-align: center"> Détails Compte </h1>
+
+<div class="container" style="margin: 0 auto ">
+
+    <div ng-if="ctrl.isSuccess" class="alert alert-success" role="alert">
+        Compte modifié avec succès !
+    </div>
+
+    <div class="mb-3 col-4">
+        <label  class="form-label"> Type</label>
+        <input ng-model="ctrl.type" type="text" class="form-control" value="{{ctrl.type}}" name="type"  disabled>
+        <div class="invalid-feedback">
+            Veuillez saisir type !
+        </div>
+    </div>
+
+    <div class="mb-3 col-4">
+        <label  class="form-label">Iban</label>
+        <input    ng-model="ctrl.iban" type="text" class="form-control"  value="" name="iban" required>
+        <div class="invalid-feedback">
+            Veuillez saisir un iban !
+        </div>
+    </div>
+
+
+
+    <div class="mb-3 col-4">
+        <label  class="form-label">Solde</label>
+        <input ng-model="ctrl.solde" type="text" class="form-control" name="solde" value="solde" required>
+        <div class="invalid-feedback">
+            Veuillez saisir un solde !
+        </div>
+    </div>
+
+
+
+
+    <button class="btn btn-primary" ng-click="ctrl.valider()">Modifier</button>
+
+
+</div>
+
+<h1 style="text-align: center"> Mes Virements </h1>
+
+<div class="container" style="margin: 0 auto ">
+    <div class="list-group">
+
+        <a href="" class="list-group-item list-group-item-action" aria-current="true" ng-repeat="beneficiaire in ctrl.beneficiaires track by $index">
+            <div class="d-flex w-100 justify-content-between">
+                <h5 class="mb-1" >Nom: </h5>
+            </div>
+            <p class="mb-1">Prenom: </p>
+            <small>IBAN: </small>
+        </a>
+
+    </div>
+
+
+</div>
+

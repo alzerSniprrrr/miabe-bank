@@ -3,6 +3,7 @@ import Dashboard from "./dashboard";
 import User from "./user/user";
 import Virement from "./virement/virement"
 import Beneficiaire from "./beneficiaire/beneficiaire"
+import CompteView from "./compte/compte_view/compte_view";
 import "../style/app.css";import "jquery";
 
 
@@ -10,6 +11,7 @@ import UserComponent from './user/user';
 import DashboardComponent from "./dashboard";
 import VirementComponent from "./virement/virement"
 import BeneficiaireComponent from "./beneficiaire/beneficiaire"
+import CompteViewComponent from "./compte/compte_view/compte_view";
 import uirouter from '@uirouter/angularjs';
 
 import "@fortawesome/fontawesome-free/css/all.min.css";
@@ -21,6 +23,7 @@ import {default as compteServiceName, CompteService} from "../service/CompteServ
 
 import dashboard from "./dashboard";
 import virement from "./virement/virement";
+import compte_view from "./compte/compte_view/compte_view";
 
 import beneficiaire from "./beneficiaire/beneficiaire";
 import {Compte} from "../model/Compte";
@@ -30,6 +33,7 @@ angular.module('app', [uirouter])
     .component(User.name, User.component)
     .component(Virement.name, virement.component)
     .component(Beneficiaire.name, beneficiaire.component)
+    .component(CompteView.name, compte_view.component)
     .service(userServiceName, UtilisateurService)
     .service(virementServiceName, VirementService)
     .service(beneficiaireServiceName, BeneficiaireService)
@@ -181,6 +185,21 @@ angular.module('app', [uirouter])
         };
 
 
+        const compte_view = {
+            name: "dashboard.compte_view",
+            state: {
+                url: "/compte_view",
+                views: {
+                    'main@': {
+                        component: CompteViewComponent.name
+                    }
+                }
+            }
+        };
+
+
+
+
 
         $urlRouterProvider.otherwise("/");
 
@@ -196,6 +215,10 @@ angular.module('app', [uirouter])
             .state(virement.name, virement.state);
         $stateProvider
             .state(beneficiaire.name, beneficiaire.state)
+
+        $stateProvider
+            .state(compte_view.name, compte_view.state)
+
     }])
 
 

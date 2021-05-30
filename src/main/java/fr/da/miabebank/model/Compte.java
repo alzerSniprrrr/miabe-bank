@@ -1,5 +1,6 @@
 package fr.da.miabebank.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
 
 import javax.persistence.*;
@@ -31,12 +32,15 @@ public class Compte {
     private String etat_compte;
 
     @OneToMany(mappedBy = "compte")
+    @JsonIgnore
     private List<Beneficiaire> beneficiaires = new ArrayList<Beneficiaire>();
 
     @OneToMany(mappedBy = "compte")
+    @JsonIgnore
     private List<Virement> virements = new ArrayList<Virement>();
     @ManyToOne
     @JoinColumn(name = "utilisateur_fk")
+    @JsonIgnore
     private Utilisateur client;
 
 

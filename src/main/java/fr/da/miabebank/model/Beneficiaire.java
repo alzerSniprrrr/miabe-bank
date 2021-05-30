@@ -1,5 +1,6 @@
 package fr.da.miabebank.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
 
 import javax.persistence.*;
@@ -19,6 +20,7 @@ public class Beneficiaire {
     private String prenom;
     @ManyToOne
     @JoinColumn(name = "compte_fk")
+    @JsonIgnore
     private Compte compte;
     public Beneficiaire(String iban, String nom) {
         this.iban = iban;

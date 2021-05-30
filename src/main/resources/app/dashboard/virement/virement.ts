@@ -10,9 +10,9 @@ const component={
     controllerAs: 'ctrl',
 }
 
-const LoginComponent = {
+const VirementComponent = {
     name: 'virement',
     component
 };
 
-export default LoginComponent;
+export default VirementComponent;

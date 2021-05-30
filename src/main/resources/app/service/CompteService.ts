@@ -16,14 +16,8 @@ export class CompteService {
         return this.$http
             .get(`http://localhost:8080/api/comptes/${id}`, {
                 credentials: 'include',
-            })
-            .then(resp => {
-                if (resp.status === 200) {
-                    return resp.data;
-                }
-            })
-            .catch((e) => {
             });
+
     }
 
 }

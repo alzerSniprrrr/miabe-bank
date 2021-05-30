@@ -5,28 +5,40 @@
 
 
 
+    <div class="mb-3 col-4">
+        <label  class="form-label">Selectionnez un compte</label>
 
 
+        <select class="form-select" aria-label="Default select example" ng-model="ctrl.compte" >
+            <option selected>Veuillez choisir un compte</option>
+            <option value="compte" ng-repeat="compte in ctrl.comptes track by $index">{{compte.type}}</option>
 
-        <div class="mb-3 col-4">
-            <label  class="form-label">Bénéficiaire</label>
+        </select>
+        <div class="invalid-feedback">
+        Veuillez choisir un compte !
+    </div>
+    </div>
 
 
-            <input class="form-control" list="datalistOptions" id="exampleDataList" placeholder="Rechercher...">
-            <a href="#!/dashboard/beneficiaire">Ajouter un bénéficiaire</a>
-            <datalist id="datalistOptions">
-                <option value="Toto">
-                <option value="Tata">
+    <div class="mb-3 col-4">
+        <label  class="form-label">Selectionnez un bénéficiaire</label>
 
-            </datalist>                      <div class="invalid-feedback">
-            Veuillez choisir un bénéficiaire !
+
+        <select class="form-select" aria-label="Default select example" ng-model="ctrl.beneficiaire">
+            <option selected>Veuillez choisir un bénéfciaire</option>
+            <option value="beneficiaire" ng-repeat="beneficiaire in ctrl.beneficiaires track by $index">{{beneficiaire.nom}}</option>
+
+        </select>
+        <a href="#!/dashboard/beneficiaire"> Ajouter un nouveau bénéficiaire</a>
+        <div class="invalid-feedback">
+            Veuillez choisir un bénéficiaires !
         </div>
-        </div>
+    </div>
         <div class="mb-3 col-4">
             <label  class="form-label">Montant</label>
             <div class="input-group mb-3">
                 <span class="input-group-text">€</span>
-                <input type="text"  name="montant"class="form-control" aria-label="Amount (to the nearest dollar)">
+                <input type="text" ng-model="ctrl.montant"  name="montant"class="form-control" aria-label="Amount (to the nearest dollar)">
             </div>
             <div class="invalid-feedback">
                 Veuillez saisir un montant !
@@ -35,7 +47,7 @@
 
         <div class="mb-3 col-4">
             <label  class="form-label">Motif</label>
-            <input type="text" class="form-control" name="motif" required>
+            <input ng-model="ctrl.motif" type="text" class="form-control" name="motif" required>
             <div class="invalid-feedback">
                 Veuillez saisir un motif !
             </div>
@@ -44,7 +56,7 @@
 
 
 
-        <button class="btn btn-primary" name="action" type="submit">Envoyer</button>
+        <button class="btn btn-primary" ng-click="ctrl.valider()">Envoyer</button>
 
 
 </div>

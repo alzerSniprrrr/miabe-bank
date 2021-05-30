@@ -8,6 +8,7 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Collection;
+import java.util.List;
 import java.util.Optional;
 
 @RestController
@@ -31,7 +32,7 @@ public class CompteController {
     }
 
     @GetMapping("/{id}")
-    Collection<Compte> getCompte(@PathVariable("id") Long id) {
+    List<Compte> getCompte(@PathVariable("id") Long id) {
         return compteRepository.findByClient(id);
 
     }

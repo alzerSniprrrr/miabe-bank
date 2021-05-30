@@ -10,6 +10,6 @@ import java.util.List;
 
 public interface CompteRepository extends JpaRepository<Compte, Long> {
 
-    @Query("SELECT  c FROM Compte c WHERE c.client.idUtilisateur = ?1")
-    Collection<Compte> findByClient(Long id);
+    @Query("SELECT  c  from Compte c WHERE c.client.idUtilisateur = ?1")
+    List<Compte> findByClient(Long id);
 }

@@ -1,6 +1,7 @@
 import {UtilisateurService, default as userServiceName} from "../../service/UtilisateurService";
 import {BeneficiaireService, default as beneficiaireServiceName} from "../../service/BeneficiaireService";
 import {Compte} from "../../model/Compte";
+import beneficiaire from "./beneficiaire";
 
 export default class BeneficiaireCtrl {
 
@@ -31,6 +32,7 @@ export default class BeneficiaireCtrl {
         return this.beneficiaireService.loadBeneficiaires()
             .then((response) => {
                 this.beneficiaires = response.data;
+                console.log(this.beneficiaires)
                 return response;
             });
     }
